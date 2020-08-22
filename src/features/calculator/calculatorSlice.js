@@ -32,9 +32,9 @@ export const calculatorSlice = createSlice({
         //Answer and the recently pressed operator
         let evaluatedState = evaluate({...state});
         if(evaluatedState === ""){
-          evaluatedState = {...state, list:[...state.list]}
+          evaluatedState = {...state}
         }
-        return {...state, list: [evaluatedState.list, action.payload.value]}
+        return {...state, list: [evaluatedState.list.join(''), action.payload.value]}
       }
     }
   },
